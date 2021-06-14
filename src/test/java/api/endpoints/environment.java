@@ -8,6 +8,8 @@ public class environment {
 
     public static String post_url  ="/pet";
 
+    public static String put_url  ="/pet";
+
     public static String get_post_delete_url="/pet/{petId}";
 
     public static String find_status_url="/findByStatus";

@@ -21,16 +21,24 @@ public class petEndpoints {
         when().get(environment.get_post_delete_url);
         return response;
     }
-    public static Response updatePet(String petId,String payload)
+    public static Response updatePutPet(Integer petId,String payload)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
-        given().contentType(ContentType.JSON).accept(ContentType.JSON).
-        pathParam("petId",petId).body(payload).
-        when().put(environment.get_post_delete_url);
+        given().contentType(ContentType.JSON).accept(ContentType.JSON).body(payload).
+        when().put(environment.put_url);
         return response;
     }
-    public static Response deletePet(String petId)
+    public static Response updatePet(Integer petId,String payload)
+    {
+        RestAssured.baseURI=environment.base_url;
+        Response response=RestAssured.
+                given().contentType(ContentType.JSON).accept(ContentType.JSON).
+                pathParam("petId",petId).body(payload).
+                when().put(environment.get_post_delete_url);
+        return response;
+    }
+    public static Response deletePet(Integer petId)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
