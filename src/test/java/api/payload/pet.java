@@ -1,20 +1,24 @@
 package api.payload;
 
+import java.util.List;
+
 public class pet {
 
     private Integer petId;
 
     private String petName;
 
-    private String categoryId;
+    private Integer categoryId;
 
     private String categoryName;
 
-    private String photoUrl;
+    private List photoUrl;
 
-    private String tagId;
+    private Integer tagId;
 
     private String tagName;
+
+    private String status;
 
 
     public Integer getPetId() {
@@ -33,11 +37,11 @@ public class pet {
         this.petName = petName;
     }
 
-    public String getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -49,19 +53,19 @@ public class pet {
         this.categoryName = categoryName;
     }
 
-    public String getPhotoUrl() {
+    public List getPhotoUrl() {
         return photoUrl;
     }
 
-    public void setPhotoUrl(String photoUrl) {
+    public void setPhotoUrl(List photoUrl) {
         this.photoUrl = photoUrl;
     }
 
-    public String getTagId() {
+    public Integer getTagId() {
         return tagId;
     }
 
-    public void setTagId(String tagId) {
+    public void setTagId(Integer tagId) {
         this.tagId = tagId;
     }
 
@@ -73,6 +77,13 @@ public class pet {
         this.tagName = tagName;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
     @Override
@@ -83,9 +94,7 @@ public class pet {
 
                 + categoryName + ", photoUrl=" + photoUrl + ", tagId=" + tagId + ", tagName="
 
-                + tagName + "]";
-
+                + tagName + ", status " + status + "]";
     }
-
 
 }

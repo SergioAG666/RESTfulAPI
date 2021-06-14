@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class petEndpoints {
-    public static Response createPet(String payload)
+    public static Response  createPet(String payload)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
@@ -13,7 +13,7 @@ public class petEndpoints {
         when().post(environment.post_url);
         return response;
     }
-    public static Response readPet(String petId)
+    public static Response readPet(Integer petId)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
