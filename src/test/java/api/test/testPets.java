@@ -96,4 +96,41 @@ public class testPets {
         System.out.println("************  "+this.petPayload.getPetName()+" is fetched **********");
     }
 
+    @Test(priority = 3)
+    public void testUpdatePetbyId()
+    {
+        Map<String,Object> catParams=new HashMap<String,Object>();
+        catParams.put("id",petPayload.getCategoryId());
+        catParams.put("name",petPayload.getCategoryName());
+
+
+        List<Map<String,Object>> tags=new ArrayList<>();
+        Map<String,Object> tagParams=new HashMap<String,Object>();
+        tagParams.put("id",petPayload.getTagId());
+        tagParams.put("name",petPayload.getTagName());
+
+        tags.add(tagParams);
+
+
+        Map<String,Object> bodyParams=new HashMap<String,Object>();
+        bodyParams.put("id",petPayload.getPetId());
+        bodyParams.put("name",petPayload.getPetName());
+        bodyParams.put("category",catParams);
+        bodyParams.put("photoUrls", petPayload.getPhotoUrl());
+        bodyParams.put("tags",tags);
+        bodyParams.put("status","pending");
+        String payload=new Gson().toJson(bodyParams);
+        System.out.println("************ {UPDATE - PUT} **********************");
+        System.out.println("------  " + payload);
+
+        Response response=petEndpoints.updatePutPet(this.petPayload.getPetId(), payload);
+        response.then().log().body().statusCode(200);
+
+        Response afterUpdateResponse=petEndpoints.readPet(this.petPayload.getPetId());
+        afterUpdateResponse.then().log().body().statusCode(200);
+
+
+        System.out.println("*********  "+this.petPayload.getPetName()+" is updated ************");
+    }
+
 }
