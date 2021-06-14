@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class petEndpoints {
-    public static Response createUser(String payload)
+    public static Response createPet(String payload)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
@@ -13,28 +13,28 @@ public class petEndpoints {
         when().post(environment.post_url);
         return response;
     }
-    public static Response readUser(String userName)
+    public static Response readPet(String petId)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
-        given().pathParam("username",userName).
+        given().pathParam("petId",petId).
         when().get(environment.get_post_delete_url);
         return response;
     }
-    public static Response updateUser(String userName,String payload)
+    public static Response updatePet(String petId,String payload)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
         given().contentType(ContentType.JSON).accept(ContentType.JSON).
-        pathParam("username",userName).body(payload).
+        pathParam("petId",petId).body(payload).
         when().put(environment.get_post_delete_url);
         return response;
     }
-    public static Response deleteUser(String userName)
+    public static Response deletePet(String petId)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
-        given().pathParam("username",userName).
+        given().pathParam("petId",petId).
         when().delete(environment.get_post_delete_url);
         return response;
     }
