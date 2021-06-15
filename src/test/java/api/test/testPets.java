@@ -71,7 +71,7 @@ public class testPets {
         bodyParams.put("tags",tags);
         bodyParams.put("status",petPayload.getStatus());
         String payload=new Gson().toJson(bodyParams);
-        System.out.println("*************** {POST} *********************");
+        System.out.println("***************  POST  *********************");
         System.out.println("------  " + payload);
 
 
@@ -86,7 +86,7 @@ public class testPets {
     @Test(priority = 2)
     public void testGetPetByName()
     {
-        System.out.println("************ {GET} *************************");
+        System.out.println("************  GET  *************************");
 
         Response response=petEndpoints.readPet(this.petPayload.getPetId());
         response.then().log().body().statusCode(200);
@@ -120,7 +120,7 @@ public class testPets {
         bodyParams.put("tags",tags);
         bodyParams.put("status","pending");
         String payload=new Gson().toJson(bodyParams);
-        System.out.println("************ {UPDATE - PUT} **********************");
+        System.out.println("************  UPDATE - PUT  **********************");
         System.out.println("------  " + payload);
 
         Response response=petEndpoints.updatePutPet(this.petPayload.getPetId(), payload);
@@ -133,4 +133,14 @@ public class testPets {
         System.out.println("*********  "+this.petPayload.getPetName()+" is updated ************");
     }
 
+    @Test(priority = 4)
+    public void testDeleteUserByName()
+    {
+        System.out.println("************** DELETE ******************************");
+
+        Response response=petEndpoints.deletePet(this.petPayload.getPetId());
+        response.then().log().body().statusCode(200);
+
+        System.out.println("********  "+this.petPayload.getPetName()+" is deleted *************");
+    }
 }
