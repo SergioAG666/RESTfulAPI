@@ -25,7 +25,7 @@ public class petEndpoints {
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
-                given().pathParam("status",petStatus).
+                given().queryParam("status",petStatus).
                 when().get(environment.find_status_url);
         return response;
     }
