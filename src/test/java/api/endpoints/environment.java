@@ -12,7 +12,7 @@ public class environment {
 
     public static String get_post_delete_url="/pet/{petId}";
 
-    public static String find_status_url="/findByStatus";
+    public static String find_status_url="/pet/findByStatus";
 
     public static String find_tags_url="/findByTags";
 

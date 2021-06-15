@@ -6,6 +6,13 @@ Implementation of Test Cases: CRUD Pattern, for a pet store sample hosted at htt
 
 This is a java project to build a stand-alone server and other project which implements REST Assured. 
 
+
+#Projects
+* Server stand alone https://github.com/swagger-api/swagger-petstore
+
+* Testing framework https://github.com/SergioAG666/REStfulAPI.git
+
+
 REST Assured is an open-source (free) Java library available for testing primarily the RESTful web services. 
 
 REST Assured is a Java domain-specific language (DSL) for simplifying testing of REST-based web services built on top of HTTP. 
