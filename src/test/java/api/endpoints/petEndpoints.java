@@ -56,6 +56,17 @@ public class petEndpoints {
                 when().post(environment.get_post_delete_url);
         return response;
     }
+    public static Response uploadImage(Integer petId,String petName,String petStatus)
+    {
+        RestAssured.baseURI=environment.base_url;
+        Response response=RestAssured.
+                given().contentType(ContentType.JSON).accept(ContentType.JSON).
+                pathParam("petId",petId).
+                queryParam("name",petName).
+                queryParam("status",petStatus).
+                when().post(environment.get_post_delete_url);
+        return response;
+    }
     public static Response deletePet(Integer petId)
     {
         RestAssured.baseURI=environment.base_url;

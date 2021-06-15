@@ -160,13 +160,24 @@ public class testPets {
     {
         System.out.println("************  UPDATE POST  *************************");
 
-        Response responsep=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
-        responsep.then().log().body().statusCode(200);
+        Response response=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
+        response.then().log().body().statusCode(200);
 
         System.out.println("************ "+this.petPayload.getPetId()+" is updated (POST) **********");
     }
 
     @Test(priority = 7)
+    public void testUploadImage()
+    {
+        System.out.println("************  UPLOAD IMAGE  *************************");
+
+        Response response=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
+        response.then().log().body().statusCode(200);
+
+        System.out.println("************ "+this.petPayload.getPetId()+" is updated (POST) **********");
+    }
+
+    @Test(priority = 8)
     public void testGetFindbyTagsPending()
     {
         System.out.println("************  FIND BY TAGS  (TAG1) *************************");
