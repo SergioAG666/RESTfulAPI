@@ -134,19 +134,28 @@ public class testPets {
     }
 
     @Test(priority = 4)
-    public void testGetFindbyStatus()
+    public void testGetFindbyStatusAvailable()
     {
-        System.out.println("************  FIND BY STATUS  *************************");
+        System.out.println("************  FIND BY STATUS  (AVAILABLE) *************************");
 
         Response response=petEndpoints.readPetStatus("available");
         response.then().log().body().statusCode(200);
 
-        System.out.println("********** Status available get ************");
-
-        System.out.println("************ Status "+this.petPayload.getPetName()+" is fetched **********");
+        System.out.println("************ Status Available is fetched **********");
     }
 
-    @Test(priority = 6)
+    @Test(priority = 5)
+    public void testGetFindbyStatusPending()
+    {
+        System.out.println("************  FIND BY STATUS  (PENDING) *************************");
+
+        Response responsep=petEndpoints.readPetStatus("pending");
+        responsep.then().log().body().statusCode(200);
+
+        System.out.println("************ Status Pending is fetched **********");
+    }
+
+    @Test(priority = 9)
     public void testDeleteUserByName()
     {
         System.out.println("************** DELETE ******************************");
