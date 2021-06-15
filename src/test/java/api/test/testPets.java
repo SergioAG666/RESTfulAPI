@@ -33,7 +33,7 @@ public class testPets {
         photoList.add("photourlstring");
         petPayload.setPhotoUrl(photoList);
         petPayload.setTagId(0);
-        petPayload.setTagName("string");
+        petPayload.setTagName("TagTest");
         petPayload.setStatus("available");
         System.out.println("Random id and petname by Faker:\t"+petPayload.getPetId()+" - "+petPayload.getPetName());
         System.out.println("**********************************************");
@@ -153,6 +153,17 @@ public class testPets {
         responsep.then().log().body().statusCode(200);
 
         System.out.println("************ Status Pending is fetched **********");
+    }
+
+    @Test(priority = 6)
+    public void testGetFindbyTagsPending()
+    {
+        System.out.println("************  FIND BY TAGS  (TAG1) *************************");
+
+        Response responsep=petEndpoints.readPetTags("TagTest");
+        responsep.then().log().body().statusCode(200);
+
+        System.out.println("************ Tag TagTest is fetched **********");
     }
 
     @Test(priority = 9)
