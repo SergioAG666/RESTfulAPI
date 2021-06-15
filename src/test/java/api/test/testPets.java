@@ -84,7 +84,7 @@ public class testPets {
     }
 
     @Test(priority = 2)
-    public void testGetPetByName()
+    public void testGetPetById()
     {
         System.out.println("************  GET  *************************");
 
@@ -134,6 +134,19 @@ public class testPets {
     }
 
     @Test(priority = 4)
+    public void testGetFindbyStatus()
+    {
+        System.out.println("************  FIND BY STATUS  *************************");
+
+        Response response=petEndpoints.readPetStatus("available");
+        response.then().log().body().statusCode(200);
+
+        System.out.println("********** Status available get ************");
+
+        System.out.println("************ Status "+this.petPayload.getPetName()+" is fetched **********");
+    }
+
+    @Test(priority = 6)
     public void testDeleteUserByName()
     {
         System.out.println("************** DELETE ******************************");

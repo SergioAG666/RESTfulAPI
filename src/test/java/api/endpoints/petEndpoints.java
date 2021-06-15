@@ -21,6 +21,14 @@ public class petEndpoints {
         when().get(environment.get_post_delete_url);
         return response;
     }
+    public static Response readPetStatus(String petStatus)
+    {
+        RestAssured.baseURI=environment.base_url;
+        Response response=RestAssured.
+                given().pathParam("status",petStatus).
+                when().get(environment.find_status_url);
+        return response;
+    }
     public static Response updatePutPet(Integer petId,String payload)
     {
         RestAssured.baseURI=environment.base_url;
