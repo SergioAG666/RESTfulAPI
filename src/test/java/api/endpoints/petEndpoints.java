@@ -45,13 +45,15 @@ public class petEndpoints {
         when().put(environment.put_url);
         return response;
     }
-    public static Response updatePet(Integer petId,String payload)
+    public static Response updatePet(Integer petId,String petName,String petStatus)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
                 given().contentType(ContentType.JSON).accept(ContentType.JSON).
-                pathParam("petId",petId).body(payload).
-                when().put(environment.get_post_delete_url);
+                pathParam("petId",petId).
+                queryParam("name",petName).
+                queryParam("status",petStatus).
+                when().post(environment.get_post_delete_url);
         return response;
     }
     public static Response deletePet(Integer petId)

@@ -149,13 +149,24 @@ public class testPets {
     {
         System.out.println("************  FIND BY STATUS  (PENDING) *************************");
 
-        Response responsep=petEndpoints.readPetStatus("pending");
-        responsep.then().log().body().statusCode(200);
+        Response responsePen=petEndpoints.readPetStatus("pending");
+        responsePen.then().log().body().statusCode(200);
 
         System.out.println("************ Status Pending is fetched **********");
     }
 
     @Test(priority = 6)
+    public void testPostUpdate()
+    {
+        System.out.println("************  UPDATE POST  *************************");
+
+        Response responsep=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
+        responsep.then().log().body().statusCode(200);
+
+        System.out.println("************ "+this.petPayload.getPetId()+" is updated (POST) **********");
+    }
+
+    @Test(priority = 7)
     public void testGetFindbyTagsPending()
     {
         System.out.println("************  FIND BY TAGS  (TAG1) *************************");
