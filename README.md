@@ -7,7 +7,7 @@ Implementation of Test Cases: CRUD Pattern, for a pet store sample hosted at htt
 This is a java project to build a stand-alone server and other project which implements REST Assured. 
 
 
-#Projects
+##Projects
 * Server stand alone https://github.com/swagger-api/swagger-petstore
 
 * Testing framework https://github.com/SergioAG666/REStfulAPI.git
@@ -31,15 +31,23 @@ They **test cases** are completely designed independent of the testing framework
 _Dependency Details_
 
 **io.rest-assured**      --> Rest Assured for testing API interactions(request & response),extract json/xml path.
+
 **org.testng**           --> Designing the Test Frmework using TestNG Classes.
+
 **com.google.code.gson** --> Represent the request body data in the from of java objects like Map <--> JSONformat.
+
 **com.github.javafaker** --> To supply fake data for testing while sending request.
+
 **com.jayway.jsonpath**  --> Extract data specifically from JSON file using jayway jsonpath.
 
 _environment.java_ class to register all the available services with end-points
+
 _petEndpoints.java_ class to perform Create, Read, Update, Delete requests to the services using the above-created end-points
+
 _pet.java_ class to represents the data structure of the user payload which is in JSON format
+
 _testPets.java_ class to perform the API Testing for the services using the TestNG class
+
 
 ------
 ------

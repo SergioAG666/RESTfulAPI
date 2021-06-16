@@ -1,5 +1,6 @@
 package api.test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -159,17 +160,6 @@ public class testPets {
     public void testPostUpdate()
     {
         System.out.println("************  UPDATE POST  *************************");
-
-        Response response=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
-        response.then().log().body().statusCode(200);
-
-        System.out.println("************ "+this.petPayload.getPetId()+" is updated (POST) **********");
-    }
-
-    @Test(priority = 7)
-    public void testUploadImage()
-    {
-        System.out.println("************  UPLOAD IMAGE  *************************");
 
         Response response=petEndpoints.updatePet(this.petPayload.getPetId(),"Laika","pending");
         response.then().log().body().statusCode(200);

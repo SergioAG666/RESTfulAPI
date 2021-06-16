@@ -3,6 +3,7 @@ package api.endpoints;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import java.io.File;
 
 public class petEndpoints {
     public static Response  createPet(String payload)
@@ -56,15 +57,15 @@ public class petEndpoints {
                 when().post(environment.get_post_delete_url);
         return response;
     }
-    public static Response uploadImage(Integer petId,String petName,String petStatus)
+    public static Response uploadImage(Integer petId,String additionalInfo, File imageU)
     {
         RestAssured.baseURI=environment.base_url;
         Response response=RestAssured.
-                given().contentType(ContentType.JSON).accept(ContentType.JSON).
+                given().
+                multiPart(imageU ).
                 pathParam("petId",petId).
-                queryParam("name",petName).
-                queryParam("status",petStatus).
-                when().post(environment.get_post_delete_url);
+                queryParam("additionalMetadata",additionalInfo).
+                when().post(environment.upload_image_url);
         return response;
     }
     public static Response deletePet(Integer petId)
